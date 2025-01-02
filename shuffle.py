@@ -29,16 +29,10 @@ mp3_files = [f for f in os.listdir(mp3_folder) if f.lower().endswith('.mp3')]
 # Shuffle the MP3 files
 random.shuffle(mp3_files)
 
-# Create a temporary folder to store the shuffled files
-# temp_folder = mp3_folder + "_temp"
-# os.makedirs(temp_folder, exist_ok=True)
-
 # Move the files into shuffled order
 for index, file in enumerate(mp3_files):
     src = os.path.join(mp3_folder, file)
     dst = os.path.join(mp3_folder, f"{index+1}_{file}")
     shutil.move(src, dst)
 
-# Optionally, you can move the shuffled files back to the original folder
-# shutil.move(temp_folder, mp3_folder)
 print(f"Shuffled {len(mp3_files)} MP3 files.")
